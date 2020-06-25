@@ -5,17 +5,18 @@ import '@react-native-firebase/database';
 class Database {
     static setUserMobile(userId, mobile) {
 
-        let userMobilePath = "/user/" + userId + "/details";
+        let userMobilePath = "/user/123/" + userId + "/details";
 
-        return firebase.database().ref('user').child(userId).child('details').set({
-            mobile: mobile
+        return firebase.database().ref('user').child("123").child(userId).child('details').set({
+            mobile: mobile,
+            userId:userId
         })
 
     }
 
     static listenUserMobile(userId, callback) {
 
-        let userMobilePath = "/user/" + userId + "/details";
+        let userMobilePath = "/user/123/" + userId + "/details";
 
         firebase.database().ref(userMobilePath).on('value', (snapshot) => {
 
